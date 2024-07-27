@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VideoPlayerApp</string>
+    <string name="btn_go_to_menu">Ir al Menú</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_back_to_menu">Regresar al Menú</string>
+</resources>
