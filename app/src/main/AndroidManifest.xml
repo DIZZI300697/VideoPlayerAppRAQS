@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.videoplayerappraqs">
 
@@ -7,9 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.VideoPlayerAppRAQS">
 
-        <!-- SplashActivity con filtro de intención -->
         <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -17,15 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Otras actividades sin filtro de intención -->
-        <activity android:name=".WelcomeActivity"
-            android:exported="true" />
-        <activity android:name=".MenuActivity"
-            android:exported="true" />
-        <activity android:name=".PlayerActivity"
-            android:exported="true" />
-
+        <activity android:name=".WelcomeActivity" android:exported="true"/>
+        <activity android:name=".RegistrationActivity" android:exported="true"/>
+        <activity android:name=".MenuActivity" android:exported="true"/>
+        <activity android:name=".PlayerActivity" android:exported="true"/>
     </application>
 
 </manifest>

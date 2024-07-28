@@ -4,53 +4,63 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuActivity extends AppCompatActivity {
+    private SharedPreferences prefs;
+    private LinearLayout categoryLayout;
+    private TextView tvGreeting;
+    private Button btnBackToWelcome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        TextView tvMessage = findViewById(R.id.tvMessage);
-        LinearLayout llCategories = findViewById(R.id.llCategories);
+        prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+        tvGreeting = findViewById(R.id.tvGreeting);
+        categoryLayout = findViewById(R.id.categoryLayout);
+        btnBackToWelcome = findViewById(R.id.btnBackToWelcome);
 
-        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
-        String name = prefs.getString("name", "");
+        String name = prefs.getString("name", "Usuario");
         int age = prefs.getInt("age", 0);
-        String gender = prefs.getString("gender", "");
+        String greeting = "Hola " + name + ", de acuerdo a tu edad: " + age + " las categorías disponibles son:";
+        tvGreeting.setText(greeting);
 
-        tvMessage.setText("Hola " + name + ", de acuerdo a tu edad: " + age + " las categorías disponibles son:");
-
+        // Mostrar categorías según la edad
         if (age < 12) {
-            addCategory(llCategories, "Caricatura", R.drawable.caricatura);
-        } else if (age < 18) {
-            addCategory(llCategories, "Acción", R.drawable.accion);
-            addCategory(llCategories, "Caricatura", R.drawable.caricatura);
+            addCategory("Caricatura", R.drawable.caricatura_banner);
+        } else if (age <= 18) {
+            addCategory("Acción", R.drawable.accion_banner);
+            addCategory("Caricatura", R.drawable.caricatura_banner);
         } else {
-            addCategory(llCategories, "Terror", R.drawable.terror);
-            addCategory(llCategories, "Acción", R.drawable.accion);
-            addCategory(llCategories, "Caricatura", R.drawable.caricatura);
+            addCategory("Terror", R.drawable.terror_banner);
+            addCategory("Acción", R.drawable.accion_banner);
+            addCategory("Caricatura", R.drawable.caricatura_banner);
         }
+
+        btnBackToWelcome.setOnClickListener(v -> {
+            Intent intent = new Intent(MenuActivity.this, WelcomeActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
-    private void addCategory(LinearLayout llCategories, String category, int imageResId) {
-        View categoryView = getLayoutInflater().inflate(R.layout.item_category, null);
-        ImageView ivCategoryImage = categoryView.findViewById(R.id.ivCategoryImage);
-        TextView tvCategoryLabel = categoryView.findViewById(R.id.tvCategoryLabel);
-
-        ivCategoryImage.setImageResource(imageResId);
-        tvCategoryLabel.setText(category);
+    private void addCategory(String categoryName, int bannerResId) {
+        View categoryView = getLayoutInflater().inflate(R.layout.item_category, categoryLayout, false);
+        TextView tvCategory = categoryView.findViewById(R.id.tvCategory);
+        tvCategory.setText(categoryName);
+        categoryView.findViewById(R.id.ivBanner).setBackgroundResource(bannerResId);
 
         categoryView.setOnClickListener(v -> {
             Intent intent = new Intent(MenuActivity.this, PlayerActivity.class);
-            intent.putExtra("category", category);
+            intent.putExtra("category", categoryName);
             startActivity(intent);
         });
 
-        llCategories.addView(categoryView);
+        categoryLayout.addView(categoryView);
     }
 }
