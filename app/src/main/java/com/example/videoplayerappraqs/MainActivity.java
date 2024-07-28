@@ -8,7 +8,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Iniciar el SplashActivity
         Intent intent = new Intent(this, SplashActivity.class);
         startActivity(intent);
         finish();

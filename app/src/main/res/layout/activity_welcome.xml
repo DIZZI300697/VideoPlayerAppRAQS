@@ -2,10 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo_welcome"
     android:padding="16dp">
 
     <Button
         android:id="@+id/btnRegister"
+        android:backgroundTint="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registro"
@@ -13,6 +15,7 @@
 
     <Button
         android:id="@+id/btnGoToMenu"
+        android:backgroundTint="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ir al menú"
@@ -22,6 +25,7 @@
 
     <Button
         android:id="@+id/btnChangeUser"
+        android:backgroundTint="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cambiar de usuario"

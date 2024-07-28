@@ -60,7 +60,6 @@ public class PlayerActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ivProfilePhoto.setImageBitmap(photo);
-            // Guardar foto en almacenamiento interno
             try {
                 FileOutputStream fos = openFileOutput("profile_photo.png", MODE_PRIVATE);
                 photo.compress(Bitmap.CompressFormat.PNG, 100, fos);
@@ -73,7 +72,6 @@ public class PlayerActivity extends AppCompatActivity {
                 finish();
             }
 
-            // Mostrar datos del usuario
             displayUserData();
         } else {
             Intent intent = new Intent(PlayerActivity.this, MenuActivity.class);
@@ -93,7 +91,6 @@ public class PlayerActivity extends AppCompatActivity {
         tvUserName.setText(name);
         tvUserAgeGender.setText("Edad: " + age + ", Género: " + gender);
 
-        // Configurar el reproductor de video
         VideoView videoView = findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + getVideoResource(category);
         videoView.setVideoURI(Uri.parse(videoPath));
