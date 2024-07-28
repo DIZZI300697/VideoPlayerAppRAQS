@@ -1,4 +1,4 @@
-package com.example.videoplayerapp;
+package com.example.videoplayerappraqs;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,8 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.videoplayerappraqs.R;
 
 public class MenuActivity extends AppCompatActivity {
     @Override
@@ -48,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
         tvCategoryLabel.setText(category);
 
         categoryView.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuActivity.this, com.example.videoplayerappraqs.PlayerActivity.class);
+            Intent intent = new Intent(MenuActivity.this, PlayerActivity.class);
             intent.putExtra("category", category);
             startActivity(intent);
         });

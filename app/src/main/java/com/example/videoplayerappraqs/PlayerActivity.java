@@ -15,9 +15,6 @@ import android.widget.VideoView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.videoplayerappraqs.R;
-
 import java.io.FileOutputStream;
 
 public class PlayerActivity extends AppCompatActivity {
@@ -43,7 +40,7 @@ public class PlayerActivity extends AppCompatActivity {
         builder.setMessage("Para poder ver el video es necesario que pongas una foto de perfil.");
         builder.setPositiveButton("Aceptar", (dialog, which) -> takeProfilePhoto());
         builder.setNegativeButton("Cancelar", (dialog, which) -> {
-            Intent intent = new Intent(PlayerActivity.this, com.example.videoplayerapp.MenuActivity.class);
+            Intent intent = new Intent(PlayerActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
         });
@@ -71,7 +68,7 @@ public class PlayerActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
                 Toast.makeText(this, "Error al guardar la foto, intente de nuevo", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(PlayerActivity.this, com.example.videoplayerapp.MenuActivity.class);
+                Intent intent = new Intent(PlayerActivity.this, MenuActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -79,7 +76,7 @@ public class PlayerActivity extends AppCompatActivity {
             // Mostrar datos del usuario
             displayUserData();
         } else {
-            Intent intent = new Intent(PlayerActivity.this, com.example.videoplayerapp.MenuActivity.class);
+            Intent intent = new Intent(PlayerActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
         }
@@ -112,7 +109,7 @@ public class PlayerActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(v -> videoView.start());
         btnPause.setOnClickListener(v -> videoView.pause());
         btnBackToMenu.setOnClickListener(v -> {
-            Intent intent = new Intent(PlayerActivity.this, com.example.videoplayerapp.MenuActivity.class);
+            Intent intent = new Intent(PlayerActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
         });

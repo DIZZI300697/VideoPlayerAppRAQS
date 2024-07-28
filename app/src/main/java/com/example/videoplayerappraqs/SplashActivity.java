@@ -1,4 +1,4 @@
-package com.example.videoplayerapp;
+package com.example.videoplayerappraqs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.videoplayerappraqs.R;
 
 public class SplashActivity extends AppCompatActivity {
     @Override
@@ -23,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
 
         // Redirigir a la pantalla de bienvenida después de la animación
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, com.example.videoplayerapp.WelcomeActivity.class);
+            Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
             startActivity(intent);
             finish();
         }, 3000); // Duración de la animación (3 segundos)

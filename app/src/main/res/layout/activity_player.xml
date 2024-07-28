@@ -43,18 +43,18 @@
             android:id="@+id/btnPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"/>
+            android:text="@string/btn_play"/>
 
         <Button
             android:id="@+id/btnPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pause"/>
+            android:text="@string/btn_pause"/>
 
         <Button
             android:id="@+id/btnBackToMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Regresar al Menú"/>
+            android:text="@string/btn_back_to_menu"/>
     </LinearLayout>
 </LinearLayout>

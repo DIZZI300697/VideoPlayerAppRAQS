@@ -1,4 +1,4 @@
-package com.example.videoplayerapp;
+package com.example.videoplayerappraqs;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.videoplayerappraqs.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     @Override
@@ -50,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
             saveUserData(name, age, gender);
 
             // Ir a la pantalla del menú
-            Intent intent = new Intent(WelcomeActivity.this, com.example.videoplayerapp.MenuActivity.class);
+            Intent intent = new Intent(WelcomeActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
         });

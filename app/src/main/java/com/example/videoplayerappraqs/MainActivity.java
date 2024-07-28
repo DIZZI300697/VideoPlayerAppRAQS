@@ -9,9 +9,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Iniciar el SplashActivity
-        Intent intent = new Intent(this, com.example.videoplayerapp.SplashActivity.class);
+        Intent intent = new Intent(this, SplashActivity.class);
         startActivity(intent);
         finish();
     }
 }
+
 
